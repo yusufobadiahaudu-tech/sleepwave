@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #07090d;
+  --color-surface: #10141b;
+  --color-elevated: #181e28;
+  --color-fg: #e6edf4;
+  --color-muted: #8a96a6;
+  --color-subtle: #6b7686;
+  --color-accent: #8eb4c4;
+  --color-accent-foreground: #0a1014;
+  --color-border: color-mix(in oklab, #e6edf4 11%, transparent);
+  --color-ring: #8eb4c4;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Iowan Old Style", Palatino, "Palatino Linotype", "Times New Roman", serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+}
+
+:root {
+  --sw-rain: #7a93b0;
+  --sw-ocean: #5f9eae;
+  --sw-noise: #9aa3b0;
+  --sw-fan: #8b97a4;
+  --sw-wind: #7fa392;
+  --sw-forest: #6d9a78;
+  --sw-fire: #c4896a;
+  --sw-thunder: #7b88a8;
+  --sw-cricket: #8aa56f;
+  --sw-stream: #5a9bb8;
+  --sw-space: #6e8aa3;
+  --sw-tone: #8a9eae;
+  --sw-piano: #b09090;
+  --shadow-border: 0 0 0 1px rgba(230, 237, 244, 0.08);
+  --shadow-border-hover: 0 0 0 1px rgba(230, 237, 244, 0.16);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    min-height: 100dvh;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(142, 180, 196, 0.08), transparent 55%),
+      radial-gradient(900px 500px at 10% 0%, rgba(230, 237, 244, 0.04), transparent 50%),
+      var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.rcb-ui-root {
+  position: relative;
+  z-index: 80;
+}
